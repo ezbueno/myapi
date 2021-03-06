@@ -1,5 +1,7 @@
 package com.ezandro.myapi.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,5 +23,11 @@ public class UserController {
 	public ResponseEntity<User> findById(@PathVariable Integer id) {
 		User user = userService.findById(id);
 		return ResponseEntity.ok().body(user);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<User>> findAll() {
+		List<User> users = userService.findAll();
+		return ResponseEntity.ok().body(users);
 	}
 }
