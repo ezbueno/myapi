@@ -26,4 +26,12 @@ public class UserService {
 		return users;
 	}
 
+	public User update(Integer id, User user) {
+		User newUser = findById(id);
+		newUser.setNome(user.getNome());
+		newUser.setLogin(user.getLogin());
+		newUser.setSenha(user.getSenha());
+		return userRepository.save(newUser);
+	}
+
 }
