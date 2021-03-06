@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezandro.myapi.entities.User;
 import com.ezandro.myapi.repositories.UserRepository;
+import com.ezandro.myapi.services.exceptions.UserNotFoundException;
 
 @Service
 public class UserService {
@@ -16,7 +17,7 @@ public class UserService {
 	
 	public User findById(Integer id) {
 		Optional<User> user = userRepository.findById(id);
-		return user.orElse(null);
+		return user.orElseThrow(() -> new UserNotFoundException("Usuário não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
 	}
 
 }
