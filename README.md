@@ -6,4 +6,4 @@
 
 - Java com Spring Boot
 - JPA com Hibernate
-- Banco H2
+- Banco de Dados H2
